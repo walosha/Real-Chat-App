@@ -1,0 +1,10 @@
+.chatinnerContainer {
+  background: #fff;
+  padding: 1rem;
+  position: absolute;
+  border-radius: 1.2rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}

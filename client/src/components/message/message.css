@@ -1,0 +1,20 @@
+.msgcontainer {
+  box-shadow: 0 0 0.3rem 0.3rem #00000024;
+  border-radius: 0.3rem;
+  display: grid;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  width: 70%;
+}
+.msgRight {
+  display: flex;
+}
+.messageAuthor {
+  background: #00000024;
+  color: #f0f;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+}
+.content {
+  font-size: 1rem;
+}

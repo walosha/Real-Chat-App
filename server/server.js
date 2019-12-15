@@ -14,14 +14,14 @@ io.on("connection", socket => {
   socket.on("join", ({ name, room }, callback) => {
     const { error, user } = addUsers({ id: socket.id, name, room });
     if (error) return callback(error);
-    console.log(user);
+
     // message to only the newly joined user
     socket.emit("message", {
       user: "admin",
       message: ` ${user.name}, welcome to to ${user.room} room`
     });
 
-    // Message to the roomexcept to the newly joined user
+    // Message to the room except to the newly joined user
     socket.broadcast.to(user.room).emit({
       user: "admin",
       message: `${user.name} has just join the ${user.name} room}`
@@ -33,7 +33,7 @@ io.on("connection", socket => {
   // Created an instances of messages of room members and send back to the client
   socket.on("sendMessage", (message, callback) => {
     const user = getUser(socket.id);
-    socket.to(user.room).emit("message", { user: user.name, message });
+    io.to(user.room).emit("message", { user: user.name, message });
     callback();
   });
   socket.on("disconnection", () => console.log("A user has just left !"));

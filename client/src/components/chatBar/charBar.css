@@ -1,0 +1,18 @@
+.appBarContainer {
+  display: flex;
+}
+
+.leftContainer {
+  margin-right: auto;
+  padding: 2rem;
+}
+.rightContainer {
+  padding: 2rem;
+}
+
+.roomHeader {
+  text-transform: uppercase;
+  color: #f0f;
+  font-weight: 700;
+  font-size: 2.3rem;
+}
