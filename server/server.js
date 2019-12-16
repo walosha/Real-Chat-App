@@ -22,9 +22,9 @@ io.on("connection", socket => {
     });
 
     // Message to the room except to the newly joined user
-    socket.broadcast.to(user.room).emit({
+    socket.broadcast.to(user.room).emit("message", {
       user: "admin",
-      message: `${user.name} has just join the ${user.name} room}`
+      message: `${user.name} has just join the ${user.room} room`
     });
     socket.join(user.room);
     callback();
@@ -36,7 +36,17 @@ io.on("connection", socket => {
     io.to(user.room).emit("message", { user: user.name, message });
     callback();
   });
-  socket.on("disconnection", () => console.log("A user has just left !"));
+
+  socket.on("disconnection", () => {
+    const user = removeUser(socket.id);
+
+    if (user) {
+      io.to(user.room).emit("message", {
+        user: "admin",
+        message: `${user.name} has left the ${user.room} room`
+      });
+    }
+  });
 });
 
 const PORT = 3001;

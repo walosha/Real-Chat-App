@@ -1,4 +1,5 @@
 .MessageDisplayStyles {
   padding: 1rem;
   background: #fff;
+  overflow-y: scroll;
 }

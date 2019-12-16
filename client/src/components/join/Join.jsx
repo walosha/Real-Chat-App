@@ -4,7 +4,7 @@ import "./join.css";
 
 export const Join = () => {
   const [name, setName] = useState("");
-  const [room, setRoom] = useState("");
+  const [room, setRoom] = useState("Reactjs");
 
   const changeName = e => {
     setName(e.target.value);
@@ -24,12 +24,11 @@ export const Join = () => {
             placeholder="name"
             className="name"
           />
-          <input
-            onChange={changeRoom}
-            type="text"
-            placeholder="room"
-            className="room"
-          />
+          <select onChange={changeRoom}>
+            <option value="reactjs">Reactjs</option>
+            <option value="javascript">Javascript</option>
+            <option value="nodejs">Nodejs</option>
+          </select>
           <Link
             onClick={e => (!name || !room ? e.preventDefault() : null)}
             to={`/chat?name=${name}&room=${room}`}

@@ -28,7 +28,7 @@ export const Chat = ({ location }) => {
     socket.emit("join", { name, room }, () => {});
 
     return () => {
-      socket.emit("disconnect");
+      socket.emit("disconnection");
       socket.off();
     };
   }, [location.search, HOST]);
@@ -47,12 +47,11 @@ export const Chat = ({ location }) => {
     }
   };
 
-  console.log(messages, message);
   return (
     <div className="outerContainer">
       <div className="chatinnerContainer">
         <ChatBar room={room} />
-        <MessageDisplay messages={messages} />
+        <MessageDisplay name={name} messages={messages} />
         <ChatInput
           setMessage={setMessage}
           sendMessage={sendMessage}
