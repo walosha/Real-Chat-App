@@ -3,12 +3,7 @@ const express = require("express");
 const socketio = require("socket.io");
 const router = require("./server/route");
 const app = express();
-const {
-  addUsers,
-  removeUser,
-  getAllUsers,
-  getUser,
-} = require("./server/user");
+const { addUsers, removeUser, getUser } = require("./server/user");
 
 app.use(router);
 
