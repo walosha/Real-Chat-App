@@ -15,7 +15,7 @@ export const Chat = ({ location }) => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
 
-  const HOST = "http://localhost:3001/";
+  const HOST = "/";
 
   useEffect(() => {
     // Parsing Query string passed to the url

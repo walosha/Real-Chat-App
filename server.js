@@ -1,9 +1,13 @@
 const http = require("http");
+const path = require("path");
 const express = require("express");
 const socketio = require("socket.io");
 const router = require("./server/route");
 const app = express();
 const { addUsers, removeUser, getUser } = require("./server/user");
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "client/build")));
 
 app.use(router);
 
