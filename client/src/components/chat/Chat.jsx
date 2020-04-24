@@ -35,12 +35,12 @@ export const Chat = ({ location }) => {
 
   //Listening for Events from the backend
   useEffect(() => {
-    socket.on("message", message => {
+    socket.on("message", (message) => {
       setMessages([...messages, message]);
     });
   }, [messages]);
 
-  const sendMessage = event => {
+  const sendMessage = (event) => {
     event.preventDefault();
     if (message) {
       socket.emit("sendMessage", message, () => setMessage(""));
